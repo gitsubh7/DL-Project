@@ -5,12 +5,12 @@ from elements.assets import transform_matrix, detect_color
 from arguments import Arguments
 from yolov5.utils.plots import plot_one_box
 
+# import tensorflow as tf
+import numpy as np
+import sys
 import torch
 import os
 import cv2
-import numpy as np
-import sys
-
 
 
 def main(opt):
