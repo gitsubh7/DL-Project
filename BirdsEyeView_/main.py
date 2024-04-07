@@ -4,7 +4,7 @@ from elements.perspective_transform import Perspective_Transform
 from elements.assets import transform_matrix, detect_color
 from arguments import Arguments
 from yolov5.utils.plots import plot_one_box
-
+import matplotlib.pyplot as plt
 # import tensorflow as tf
 import numpy as np
 import sys
@@ -45,16 +45,19 @@ def main(opt):
 
     frame_num = 0
 
-    # Black Image (Soccer Field)
-    bg_ratio = np.int64(np.ceil(w/(3*115)))
-    gt_img = cv2.imread('./inference/black.jpg')
+     # Black Image (Soccer Field)
+    ##this right here
+    bg_ratio = int(5)
+    gt_img = cv2.imread('/content/DL-Project/BirdsEyeView_/inference/black.jpg')
 
-    # Resize the image to match the dimensions of the main frame
-    # gt_img = cv2.resize(gt_img, (frame.shape[1], frame.shape[0]))
-
-    gt_img = cv2.resize(gt_img,(115*bg_ratio, 74*bg_ratio))
+    if gt_img.shape[1] <= 0:
+        print("Error, invalid image size", gt_img.shape[1])
+        #return
+    print(gt_img.shape)
+    plt.imshow(gt_img)
+    plt.show()
+    #gt_img = cv2.resize(gt_img, (w, h))
     gt_h, gt_w, _ = gt_img.shape
-
 
     while(cap.isOpened()):
         
@@ -128,7 +131,7 @@ def main(opt):
     cap.release()
     cv2.destroyAllWindows()
 
-if __name__ == '__main__':
+if __name__ == '_main_':
 
     opt = Arguments().parse()
     with torch.no_grad():
