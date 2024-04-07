@@ -1,18 +1,14 @@
-#!pip install colorthief
-
 # @title
 from colorthief import ColorThief
 
-# Commented out IPython magic to ensure Python compatibility.
 # @title
 import os
 HOME = os.getcwd()
-print(HOME)
-# %cd {HOME}
-# !git clone https://github.com/ultralytics/yolov5
-# %cd yolov5
-# %pip install -r requirements.txt
-# %cd {HOME}
+import subprocess
+subprocess.run(["git", "clone", "https://github.com/ultralytics/yolov5"])
+subprocess.run(["cd", "yolov5"])
+subprocess.run(["pip", "install", "-r", "yolov5/requirements.txt"])
+
 import torch
 from typing import Generator
 import matplotlib.pyplot as plt
