@@ -131,7 +131,7 @@ def main(opt):
     cap.release()
     cv2.destroyAllWindows()
 
-if __name__ == '_main_':
+if __name__ == '__main__':
 
     opt = Arguments().parse()
     with torch.no_grad():
