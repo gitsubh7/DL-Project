@@ -47,7 +47,7 @@ def main(opt):
 
      # Black Image (Soccer Field)
     ##this right here
-    bg_ratio = int(5)
+    bg_ratio = int(15)
     gt_img = cv2.imread('/content/DL-Project/BirdsEyeView_/inference/black.jpg')
 
     if gt_img.shape[1] <= 0:
